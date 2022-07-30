@@ -1,0 +1,32 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "node",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "remove-path": "removeNPMAbsolutePaths ./",
+    "deploy": "npm run remove-path && webpack --mode production",
+    "debug": "webpack --mode development --devtool inline-source-map",
+    "mock": "d -n nbiservice",
+    "dev": "webpack-dev-server --config ./webpack.dev.config.js  --open",
+    "localdev": "webpack-dev-server --config ./webpack.dev.local.config.js  --open",
+    "generateAnalyzFile": "webpack --profile --json > stats.json",
+    "analyze": "webpack-bundle-analyzer --port 8888 ./dist/stats.json",
+    "ut": "karma start",
+    "ft": "nightwatch --scenesName",
+    "eslint": "npx eslint ./src/** --quiet --no-color -o ./eslint-result.txt"
+  },
+  "keywords": [
+    "node",
+    "js"
+  ],
+  "author": "my",
+  "license": "",
+  "dependencies": {
+    "axios": "v0.24.0"
+  }
+}
